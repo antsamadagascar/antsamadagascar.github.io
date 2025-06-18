@@ -135,6 +135,14 @@ body {
     padding: 0 1rem;
     width: 100%;
 }
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 1rem;
+}
 
 .hero h1 {
     font-size: clamp(2rem, 8vw, 3.5rem);
@@ -816,4 +824,5 @@ body {
     .skill-category {
         padding: 1rem;
     }
+    
 }
