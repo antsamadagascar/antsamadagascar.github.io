@@ -150,60 +150,51 @@
             overflow: hidden;
         }
 
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: #0a0a1f; /* Fond sombre pour effet tech */
+        }
+
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            width: 60px; /* Taille du carré */
+            height: 60px;
             background: linear-gradient(
-                to bottom,
-                transparent 0%,
-                rgba(255, 51, 102, 0.3) 5%,
-                rgba(255, 51, 102, 0.3) 10%,
-                transparent 15%,
-                transparent 20%,
-                rgba(0, 255, 204, 0.35) 25%,
-                rgba(0, 255, 204, 0.35) 30%,
-                transparent 35%,
-                transparent 45%,
-                rgba(153, 51, 255, 0.3) 50%,
-                rgba(153, 51, 255, 0.3) 55%,
-                transparent 60%,
-                transparent 70%,
-                rgba(255, 204, 51, 0.3) 75%,
-                rgba(255, 204, 51, 0.3) 80%,
-                transparent 85%
+                45deg,
+                rgba(0, 229, 255, 0.4), /* Cyan néon */
+                rgba(255, 113, 206, 0.4) /* Rose néon */
             );
-            background-size: 200% 200%;
-            animation: cyberFlow 8s ease-in-out infinite;
-            filter: blur(1px);
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 1;
+            border-radius: 8px; /* Coins légèrement arrondis pour douceur */
+            top: -80px; /* Départ hors écran */
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg); /* Centré et incliné pour dynamisme */
+            animation: fallingWave 6s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); /* Glow subtil */
+            will-change: transform, opacity; /* Optimisation GPU */
         }
 
-        @keyframes cyberFlow {
+        @keyframes fallingWave {
             0% {
-                background-position: 0% 0%;
+                transform: translateX(-50%) translateY(0) rotate(45deg);
                 opacity: 0.6;
             }
             25% {
-                background-position: 50% 20%;
-                opacity: 0.75;
+                transform: translateX(-70%) translateY(30vh) rotate(45deg);
+                opacity: 0.8;
             }
             50% {
-                background-position: 30% 80%;
+                transform: translateX(-50%) translateY(60vh) rotate(45deg);
                 opacity: 0.6;
             }
             75% {
-                background-position: -20% 40%;
-                opacity: 0.75;
+                transform: translateX(-30%) translateY(90vh) rotate(45deg);
+                opacity: 0.8;
             }
             100% {
-                background-position: 0% 0%;
-                opacity: 0.6;
+                transform: translateX(-50%) translateY(120vh) rotate(45deg);
+                opacity: 0; /* Disparition en bas */
             }
         }
 
