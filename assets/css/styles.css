@@ -574,6 +574,7 @@ body::before {
     color: white;
 }
 
+/* Projects Section avec cartes 3D */
 /* Projects Section avec cartes 3D - Version mobile responsive */
 .projects {
     background: var(--bg-secondary);
@@ -790,6 +791,52 @@ body::before {
         padding: 0.2rem 0.5rem;
     }
 }
+
+.project-header {
+    margin-bottom: 2rem;
+}
+
+.project-title {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.project-period {
+    background: var(--success-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.project-role {
+    background: var(--secondary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+.project-image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+ }
+ 
 .tech-tag {
     background: var(--bg-glass);
     color: var(--text-primary);
