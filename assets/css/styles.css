@@ -1160,7 +1160,25 @@ body::before {
         font-size: 1rem;
     }
 }
+@media (max-width: 768px) {
+    .project-achievements li:nth-child(n+5) {
+        display: none;
+    }
+    
+    /* Désactiver les animations coûteuses */
+    .project-card {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .project-card:hover {
+        transform: none !important;
+    }
 
+    .project-card {
+        backdrop-filter: none;
+    }
+}
 /* Optimisations de performance */
 @media (prefers-reduced-motion: reduce) {
     *,
