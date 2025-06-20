@@ -1161,10 +1161,10 @@ body::before {
     }
 }
 @media (max-width: 768px) {
-    .project-achievements li:nth-child(n+5) {
-        display: none;
+    .project-achievements {
+        max-height: 300px;
+        overflow-y: auto;
     }
-    
     /* Désactiver les animations coûteuses */
     .project-card {
         transform: none !important;
@@ -1177,6 +1177,101 @@ body::before {
 
     .project-card {
         backdrop-filter: none;
+    }
+}
+.education-highlights, .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.highlight-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+}
+
+.highlight-tag.learning {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-tag.learning::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: learning-shimmer 2s infinite;
+}
+
+@keyframes learning-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.experience-category {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-category h3 {
+    color: #4facfe;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+
+.experience-category h3 i {
+    margin-right: 10px;
+    color: #00f2fe;
+}
+
+.experiences-grid {
+    display: grid;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .experiences-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .experiences-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 /* Optimisations de performance */
