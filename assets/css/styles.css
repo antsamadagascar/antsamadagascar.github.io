@@ -575,33 +575,27 @@ body::before {
 }
 
 /* Projects Section avec cartes 3D */
-/* Projects Section avec cartes 3D - Version mobile responsive */
 .projects {
     background: var(--bg-secondary);
     position: relative;
-    padding: 3rem 1rem; /* Ajout du padding pour mobile */
 }
 
 .projects-grid {
     display: grid;
-    /* Correction principale : grille responsive */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
 }
 
 .project-card {
     background: var(--bg-card);
     backdrop-filter: blur(20px);
     border-radius: var(--border-radius);
-    padding: 1.5rem; /* Réduction du padding pour mobile */
+    padding: 2.5rem;
     border: var(--border-glass);
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
     transform-style: preserve-3d;
-    width: 100%; /* Assure que la carte prend toute la largeur disponible */
 }
 
 .project-card::before {
@@ -624,172 +618,6 @@ body::before {
 .project-card:hover {
     transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
     box-shadow: var(--shadow-heavy);
-}
-
-.project-header {
-    margin-bottom: 1.5rem;
-}
-
-.project-title {
-    color: var(--text-primary);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-}
-
-.project-period {
-    background: var(--success-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.project-role {
-    background: var(--secondary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-    display: block;
-    margin: 1rem 0;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1.5rem;
-}
-
-.tech-tag {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.project-image {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: block; /* Important pour éviter les espaces */
-}
-
-.project-achievements {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
-}
-
-.project-achievements li {
-    padding: 0.5rem 0;
-    color: var(--text-secondary);
-    position: relative;
-    padding-left: 1.5rem;
-    line-height: 1.5;
-}
-
-.project-achievements li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition-smooth);
-}
-
-.project-link:hover {
-    color: var(--text-primary);
-    transform: translateX(5px);
-}
-
-/* Media queries pour une meilleure responsive */
-@media (max-width: 768px) {
-    .projects {
-        padding: 2rem 0.5rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-        gap: 1.5rem;
-    }
-    
-    .project-card {
-        padding: 1.2rem;
-        margin: 0 0.5rem; /* Marge latérale pour éviter le collage aux bords */
-    }
-    
-    .project-title {
-        font-size: 1.2rem;
-    }
-    
-    .project-role {
-        font-size: 0.95rem;
-        margin: 0.8rem 0;
-    }
-    
-    .project-tech {
-        gap: 0.4rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .tech-tag {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-    }
-    
-    .project-image {
-        max-height: 180px;
-        margin-bottom: 12px;
-    }
-    
-    /* Désactiver les effets 3D sur mobile pour de meilleures performances */
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-}
-
-@media (max-width: 480px) {
-    .projects {
-        padding: 1.5rem 0.25rem;
-    }
-    
-    .project-card {
-        padding: 1rem;
-        margin: 0 0.25rem;
-    }
-    
-    .project-title {
-        font-size: 1.1rem;
-    }
-    
-    .project-image {
-        max-height: 150px;
-    }
-    
-    .tech-tag {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
-    }
 }
 
 .project-header {
@@ -829,14 +657,19 @@ body::before {
     gap: 0.8rem;
     margin-bottom: 2rem;
 }
+/* Lazy loading et optimisation images */
 .project-image {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 15px;
- }
- 
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    /* Optimisations critiques pour mobile */
+    loading: lazy;
+    will-change: auto;
+    transform: translateZ(0); /* Force GPU */
+}
 .tech-tag {
     background: var(--bg-glass);
     color: var(--text-primary);
